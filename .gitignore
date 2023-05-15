@@ -1,0 +1,11 @@
+# Ignore all files in the dist folder
+/dist/*
+
+# Except for index.js and 
+!/dist/index.js
+
+# Ignore the node_modules folder
+/node_modules/
+
+# Ignore .env
+/.env
