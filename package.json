@@ -1,0 +1,27 @@
+{
+  "type": "module",
+  "scripts": {
+    "start": "tsc && node dist/server.js"
+  },
+  "dependencies": {
+    "apollo-server-koa": "^3.12.0",
+    "bcrypt": "^5.1.0",
+    "casual": "^1.6.2",
+    "dotenv": "^16.0.3",
+    "graphql": "^15.8.0",
+    "graphql-compose-mongoose": "^9.8.0",
+    "jsonwebtoken": "^9.0.0",
+    "koa": "^2.14.2",
+    "koa-bodyparser": "^4.4.0",
+    "koa-graphql": "^0.12.0",
+    "koa-router": "^12.0.0",
+    "mongodb": "^5.5.0",
+    "mongoose": "^7.1.1"
+  },
+  "devDependencies": {
+    "@types/graphql": "^14.5.0",
+    "@types/koa": "^2.13.6",
+    "@types/node": "^20.1.4",
+    "typescript": "^5.0.4"
+  }
+}

@@ -1,3 +1,14 @@
+# Ignore all files in the dist folder
+/dist/*
+
+# Except for index.js and 
+!/dist/index.js
+
+# Ignore the node_modules folder
+/node_modules/
+
+# Ignore .env
+/.env
 # compiled output
 /dist
 /node_modules
@@ -10,13 +21,6 @@ pnpm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
-
-# OS
-.DS_Store
-
-# Tests
-/coverage
-/.nyc_output
 
 # IDEs and editors
 /.idea
