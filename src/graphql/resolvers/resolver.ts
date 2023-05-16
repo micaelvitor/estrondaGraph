@@ -23,7 +23,7 @@ const resolvers = {
     },
   },
   Mutation: {
-    async createBoosting(args: { boosting: any; }) {
+    async createBoosting(parent: any, args: { boosting: any; }, context: any, info: any) {
       const boosting  = args;
       const user = await BoostingModel.create(boosting);
       return user.toObject();
