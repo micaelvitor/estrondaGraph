@@ -21,9 +21,9 @@ const resolvers = {
         throw new UserInputError(error.message);
       }
     },
-    user: async (): Promise<User[]> => {
+    user: async (_: any, { id }: { id: number }): Promise<User | null> => {
       try {
-        const user = await UserModel.find().exec();
+        const user = await UserModel.findOne({ id }).exec();
         return user;
       } 
       catch (error: any) {
