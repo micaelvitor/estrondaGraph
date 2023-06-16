@@ -1,6 +1,6 @@
 import { UserInputError } from 'apollo-server-koa';
 import BoostingModel, { Boosting } from '../../database/model/booster.js';
-
+import UserModel, { User } from '../../database/model/user.js';
 const resolvers = {
   Query: {
     boosting: async (_: any, { id }: { id: number }): Promise<Boosting | null> => {
@@ -21,11 +21,34 @@ const resolvers = {
         throw new UserInputError(error.message);
       }
     },
+    user: async (): Promise<User[]> => {
+      try {
+        const user = await UserModel.find().exec();
+        return user;
+      } 
+      catch (error: any) {
+        throw new UserInputError(error.message);
+      }
+    },
+    allUsers: async (): Promise<User[]> => {
+      try {
+        const user = await UserModel.find().exec();
+        return user;
+      } 
+      catch (error: any) {
+        throw new UserInputError(error.message);
+      }
+    },
   },
   Mutation: {
     async createBoosting(parent: any, args: { boosting: any; }, context: any, info: any) {
       const boosting  = args;
-      const user = await BoostingModel.create(boosting);
+      const user = await UserModel.create(boosting);
+      return user.toObject();
+    },
+    async createUser(parent: any, args: { user: any; }, context: any, info: any) {
+      const userInfo  = args;
+      const user = await UserModel.create(userInfo);
       return user.toObject();
     }
   }

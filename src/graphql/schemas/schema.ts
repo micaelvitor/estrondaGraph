@@ -4,6 +4,8 @@ const strondaSchema = gql`
     type Query {
         boosting(id: Int!): Boosting
         allBoosting: [Boosting]
+        user(id: Int!): [User]
+        allUsers: [User]
     }
 
     type Mutation {
@@ -15,6 +17,11 @@ const strondaSchema = gql`
             finished: Boolean
             boosterId: Int
         ): Boosting
+        createUser(
+            username: String
+            password: String
+            email: String
+        ): UserMutation
     }
       
     type Boosting {
@@ -24,6 +31,23 @@ const strondaSchema = gql`
         goalMmr: String
         finished: Boolean
         boosterId: Int
+    }
+
+    type User{
+        userid: Int
+        admin: Boolean
+        username: String
+        password: String
+        email: String
+        booster: Boolean
+        created: String
+        update: String
+    }
+
+    type UserMutation{
+        username: String
+        password: String
+        email: String
     }
 `;
 export default strondaSchema;
