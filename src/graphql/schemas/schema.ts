@@ -37,11 +37,8 @@ const strondaSchema = gql`
         userid: Int
         admin: Boolean
         username: String
-        password: String
         email: String
         booster: Boolean
-        created: String
-        update: String
     }
 
     type UserMutation{
