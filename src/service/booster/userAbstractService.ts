@@ -1,4 +1,4 @@
-import UserModel from '../../database/model/user.js';
+import UserModel from '../../models/user.js';
 
 export abstract class userAbstractService {
     public userEmail: string;
