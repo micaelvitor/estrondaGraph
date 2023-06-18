@@ -3,17 +3,18 @@ import Koa from 'koa';
 // import cors from "cors"
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
-import typeDefs from './graphql/schemas/schema.js';
-import resolvers from './graphql/resolvers/resolver.js';
+import typeDefs from './graphql/schemas/schema';
+import resolvers from './graphql/resolvers/resolver';
 import koaJwt from 'koa-jwt';
+import router from './routes/routes'
 
 
 const database = mongoose.connection;
 dotenv.config();
-const mongoString = process.env.DATABASE_URL;
+const mongoString: string = process.env.DATABASE_URL as string;
 mongoose.connect(mongoString);
-
 const app = new Koa();
+require('ts-node/register');
 
 // var corsOptions = {
 //     origin: "*"
@@ -21,16 +22,21 @@ const app = new Koa();
 
 // app.use(cors(corsOptions));
 
+const secret: string = process.env.SECRET as string;
+const middlewareJwt = koaJwt({ secret }).unless(
+    { path: 
+        [
+            '/login',
+            '/register'
+        ] 
+    }
+);
 
-const secret = process.env.SECRET;
-const middlewareJwt = koaJwt({ secret }).unless({ path: ['/login','/register'] });
-app.use(middlewareJwt);
-
+app.use(router.routes()).use(router.allowedMethods()).use(middlewareJwt);
 
 const server = new ApolloServer({
+    cache: "bounded",
     debug: true,
-    playground: true,
-    tracing: true,
     resolvers,
     typeDefs
 });
@@ -38,7 +44,6 @@ const server = new ApolloServer({
 async function startServer() {
     await server.start();
     const port = 8080;
-    
     app.listen(port, () => {
         console.log('Estronda boost online!');
         console.log('Server escutando na porta %s', port);

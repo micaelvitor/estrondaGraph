@@ -1,37 +1,20 @@
 {
   "compilerOptions": {
-    "target": "es2020",
-    "module": "es2020",
-    "allowJs": true,
-    "removeComments": true,
-    "resolveJsonModule": true,
-    "typeRoots": [
-      "./node_modules/@types"
-    ],
-    "sourceMap": true,
+    /* Language and Environment */
+    "target": "es2020",                                  /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */
     "outDir": "./dist",
-    "strict": true,
-    "lib": [
-      "es2020"
-    ],
-    "baseUrl": ".",
-    "forceConsistentCasingInFileNames": true,
-    "esModuleInterop": true,
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "moduleResolution": "Node",
-    "skipLibCheck": true,
-    "paths": {
-      "@routes/*": [
-        "./src/routes/*"
-      ],
-      "@middlewares/*": [
-        "./src/middlewares/*"
-      ]
-    }
+    /* Modules */
+    "module": "CommonJS",                                /* Specify what module code is generated. */
+    "esModuleInterop": true,                             /* Emit additional JavaScript to ease support for importing CommonJS modules. This enables 'allowSyntheticDefaultImports' for type compatibility. */
+    "forceConsistentCasingInFileNames": true,            /* Ensure that casing is correct in imports. */
+    "moduleResolution": "nodenext",
+    /* Type Checking */
+    "strict": true,                                      /* Enable all strict type-checking options. */
+    "skipLibCheck": true ,                                /* Skip type checking all .d.ts files. */
+    "sourceMap": true,
+    "sourceRoot": "src"
   },
   "include": [
-    "src/**/*"
-  ],
-  "exclude": ["node_modules"],
+    "src/**/*.ts"
+  ]
 }

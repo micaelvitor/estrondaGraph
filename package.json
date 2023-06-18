@@ -1,8 +1,9 @@
 {
+  "type":"commonjs",
   "scripts": {
     "start": "NODE_ENV=production node dist/server.js",
     "compile": "swc src -w --out-dir dist",
-    "dev": "nodemon --watch \"dist/**/*\" -e js ./dist/server.js",
+    "dev": "nodemon --watch 'src/' --exec 'ts-node src/server.ts' -e ts",
     "build": "swc src -d dist",
     "clean": "rm -rf dist"
   },
@@ -39,6 +40,7 @@
     "concurrently": "^8.2.0",
     "eslint": "^8.42.0",
     "nodemon": "^2.0.22",
+    "ts-node": "^10.9.1",
     "typescript": "^5.0.4"
   }
 }

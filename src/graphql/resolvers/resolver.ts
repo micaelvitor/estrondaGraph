@@ -1,6 +1,6 @@
 import { UserInputError } from 'apollo-server-koa';
-import BoostingModel, { Boosting } from '../../models/booster.js';
-import UserModel, { User } from '../../models/user.js';
+import BoostingModel, { Boosting } from '../../models/booster';
+import UserModel, { User } from '../../models/user';
 const resolvers = {
   Query: {
     boosting: async (_: any, { id }: { id: number }): Promise<Boosting | null> => {
