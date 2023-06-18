@@ -1,6 +1,4 @@
-import { gql } from 'apollo-server-koa';
- 
-const strondaSchema = gql`
+export const typeDefs = `#graphql
     type Query {
         boosting(id: Int!): Boosting
         allBoosting: [Boosting]
@@ -47,4 +45,3 @@ const strondaSchema = gql`
         email: String
     }
 `;
-export default strondaSchema;

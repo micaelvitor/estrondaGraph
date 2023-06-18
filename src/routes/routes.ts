@@ -1,8 +1,8 @@
 import Router from 'koa-router';
 import { Context } from 'koa';
 import jwt, { Secret } from 'jsonwebtoken';
-import dotenv from 'dotenv';
-dotenv.config();
+// import dotenv from 'dotenv';
+import { middlewareJWT } from '../middleware/jwtMiddleware.js';
 const router = new Router();
 const SECRET: Secret = process.env.SECRET as Secret;
 
@@ -12,9 +12,11 @@ interface AuthRequestBody {
 }
 
 router.post('/login', async (ctx: Context) => {
-  const { username, password } = ctx.request.body as AuthRequestBody;
-  const token = jwt.sign({ username }, SECRET, { expiresIn: '24h' });
-  ctx.body = { token };
+  // const { username, password } = ctx.request.body as AuthRequestBody;
+  // const token = jwt.sign({ username }, SECRET, { expiresIn: '24h' });
+  // ctx.body = { token };
+  middlewareJWT;
+  console.log('oi')
 });
 
 router.get('/register', async (ctx: Context) => {

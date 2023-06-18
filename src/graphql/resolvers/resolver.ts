@@ -1,6 +1,6 @@
-import { UserInputError } from 'apollo-server-koa';
-import BoostingModel, { Boosting } from '../../models/booster';
-import UserModel, { User } from '../../models/user';
+import { GraphQLError } from 'graphql';
+import BoostingModel, { Boosting } from '../../models/booster.js';
+import UserModel, { User } from '../../models/user.js';
 const resolvers = {
   Query: {
     boosting: async (_: any, { id }: { id: number }): Promise<Boosting | null> => {
@@ -9,7 +9,7 @@ const resolvers = {
         return boosting;
       } 
       catch (error: any) {
-        throw new UserInputError(error.message);
+        throw new GraphQLError(error.message);
       }
     },
     allBoosting: async (): Promise<Boosting[]> => {
@@ -18,7 +18,7 @@ const resolvers = {
         return boosting;
       } 
       catch (error: any) {
-        throw new UserInputError(error.message);
+        throw new GraphQLError(error.message);
       }
     },
     user: async (_: any, { id }: { id: number }): Promise<User | null> => {
@@ -27,7 +27,7 @@ const resolvers = {
         return user;
       } 
       catch (error: any) {
-        throw new UserInputError(error.message);
+        throw new GraphQLError(error.message);
       }
     },
     allUsers: async (): Promise<User[]> => {
@@ -36,7 +36,7 @@ const resolvers = {
         return user;
       } 
       catch (error: any) {
-        throw new UserInputError(error.message);
+        throw new GraphQLError(error.message);
       }
     },
   },
