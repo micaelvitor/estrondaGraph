@@ -3,7 +3,6 @@ interface resolverArg {
 }
 
 interface User {
-    userid: number;
     email: string;
     boosterName: string;
     originalMmr: string;

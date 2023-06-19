@@ -20,7 +20,7 @@ router.post('/login', async (ctx: Context) => {
 });
 
 router.get('/register', async (ctx: Context) => {
-    ctx.body = "<h1>Froxilda porra!!!</h1>";
+  ctx.body = "<h1>Froxilda porra!</h1>";
 });
 
 export default router;

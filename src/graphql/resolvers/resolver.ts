@@ -3,7 +3,7 @@ import BoostingModel, { Boosting } from '../../models/booster.js';
 import UserModel, { User } from '../../models/user.js';
 const resolvers = {
   Query: {
-    boosting: async (_: any, { id }: { id: number }): Promise<Boosting | null> => {
+    boosting: async (_: any, { id }: { id: string }): Promise<Boosting | null> => {
       try {
         const boosting = await BoostingModel.findOne({ id }).exec();
         return boosting;
@@ -21,9 +21,10 @@ const resolvers = {
         throw new GraphQLError(error.message);
       }
     },
-    user: async (_: any, { id }: { id: number }): Promise<User | null> => {
+    user: async (_: any, { _id }: { _id: string }): Promise<User | null> => {
       try {
-        const user = await UserModel.findOne({ id }).exec();
+        const user = await UserModel.findOne({ _id }).exec();
+        console.log(user)
         return user;
       } 
       catch (error: any) {

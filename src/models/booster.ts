@@ -1,7 +1,6 @@
 import mongoose, { Document, Model } from 'mongoose';
 
 export interface Boosting extends Document {
-  userid: number;
   boosterName: string;
   originalMmr: string;
   goalMmr: string;
@@ -12,7 +11,6 @@ export interface Boosting extends Document {
 }
 
 const boostingSchema = new mongoose.Schema<Boosting>({
-  userid: { type: Number, required: true },
   boosterName: { type: String, required: true },
   originalMmr: { type: String, required: true },
   goalMmr: { type: String, required: true },

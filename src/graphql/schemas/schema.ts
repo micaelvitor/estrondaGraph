@@ -1,19 +1,18 @@
 export const typeDefs = `#graphql
     type Query {
-        boosting(id: Int!): Boosting
+        boosting(id: String!): Boosting
         allBoosting: [Boosting]
-        user(id: Int!): [User]
+        user(_id: String!): User
         allUsers: [User]
     }
 
     type Mutation {
         createBoosting(
-            userid: Int
             boosterName: String
             originalMmr: String
             goalMmr: String
             finished: Boolean
-            boosterId: Int
+            boosterId: String
         ): Boosting
         createUser(
             username: String
@@ -23,7 +22,7 @@ export const typeDefs = `#graphql
     }
       
     type Boosting {
-        userid: Int
+        _id: String
         boosterName: String
         originalMmr: String
         goalMmr: String
@@ -32,7 +31,7 @@ export const typeDefs = `#graphql
     }
 
     type User{
-        userid: Int
+        _id: String
         admin: Boolean
         username: String
         email: String
