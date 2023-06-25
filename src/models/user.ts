@@ -1,4 +1,5 @@
 import mongoose, { Document, Model } from 'mongoose';
+import bcrypt from 'bcryptjs';
 
 export interface User extends Document {
   admin?: boolean;
@@ -17,6 +18,13 @@ const userSchema = new mongoose.Schema<User>({
   password: { type: String, required: true },
   email: { type: String, required: true }
 }, { timestamps: true });
+
+userSchema.methods.comparePasswords = async function (
+  candidatePassword,
+  hashedPassword
+){
+  return await bcrypt.compare(candidatePassword, hashedPassword);
+};
   
 const UserModel: Model<User> = mongoose.model<User>('User', userSchema);
 

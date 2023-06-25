@@ -11,9 +11,10 @@
   "dependencies": {
     "@apollo/server": "^4.7.4",
     "@as-integrations/koa": "^1.1.1",
-    "bcrypt": "^5.1.0",
+    "bcrypt": "^5.0.1",
     "bcryptjs": "^2.4.3",
     "casual": "^1.6.2",
+    "config": "^3.3.9",
     "cookie-session": "^2.0.0",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
@@ -39,7 +40,7 @@
     "chokidar": "^3.5.3",
     "concurrently": "^8.2.0",
     "eslint": "^8.42.0",
-    "nodemon": "^2.0.22",
+    "nodemon": "^1.14.9",
     "ts-node": "^10.9.1",
     "tsc-alias": "^1.8.6",
     "typescript": "^5.1.3"

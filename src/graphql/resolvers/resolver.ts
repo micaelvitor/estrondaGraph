@@ -1,6 +1,7 @@
 import { GraphQLError } from 'graphql';
 import BoostingModel, { Boosting } from '../../models/booster.js';
 import UserModel, { User } from '../../models/user.js';
+
 const resolvers = {
   Query: {
     boosting: async (_: any, { id }: { id: string }): Promise<Boosting | null> => {
